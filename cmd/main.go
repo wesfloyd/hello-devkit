@@ -31,6 +31,7 @@ func (tw *TaskWorker) ValidateTask(t *performerV1.TaskRequest) error {
 	tw.logger.Sugar().Infow("Validating task",
 		zap.Any("task", t),
 	)
+	tw.logger.Sugar().Infow("ValidateTask called", "taskID", t.TaskId)
 
 	// ------------------------------------------------------------------------
 	// Implement your AVS task validation logic here
@@ -45,6 +46,8 @@ func (tw *TaskWorker) HandleTask(t *performerV1.TaskRequest) (*performerV1.TaskR
 	tw.logger.Sugar().Infow("Handling task",
 		zap.Any("task", t),
 	)
+	tw.logger.Sugar().Infow("HandleTask called", "taskID", t.TaskId)
+	// todo: debug why this message is not being logged.
 
 	// ------------------------------------------------------------------------
 	// Implement your AVS logic here
